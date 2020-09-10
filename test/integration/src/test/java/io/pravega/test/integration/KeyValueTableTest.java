@@ -444,4 +444,3 @@ public class KeyValueTableTest extends KeyValueTableTestBase {
         return new KeyValueTableInfo(SCOPE, String.format("KVT-%d", System.nanoTime()));
     }
 }
-
