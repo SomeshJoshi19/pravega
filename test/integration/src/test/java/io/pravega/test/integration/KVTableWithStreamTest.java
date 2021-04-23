@@ -42,7 +42,7 @@ import io.pravega.client.tables.impl.KeyValueTableTestBase;
 import io.pravega.common.concurrent.Futures;
 import io.pravega.common.tracing.RequestTracker;
 import io.pravega.common.util.ByteArraySegment;
-import io.pravega.controller.server.rpc.auth.GrpcAuthHelper;
+import io.pravega.controller.server.security.auth.GrpcAuthHelper;
 import io.pravega.controller.stream.api.grpc.v1.Controller.DeleteKVTableStatus;
 import io.pravega.controller.server.rpc.grpc.v1.ControllerServiceImpl;
 import io.pravega.segmentstore.contracts.StreamSegmentNotExistsException;
@@ -151,7 +151,7 @@ public class KVTableWithStreamTest extends KeyValueTableTestBase {
 
         //5. setting up controller service instance
         this.controllerService = new ControllerServiceImpl(controllerWrapper.getControllerService(),
-                GrpcAuthHelper.getDisabledAuthHelper(), requestTracker, true, 2);
+                GrpcAuthHelper.getDisabledAuthHelper(), requestTracker, true, true, 2);
     }
 
     @After
